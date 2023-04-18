@@ -36,6 +36,35 @@ function extraccion() {
 	doc.save("formulario.pdf");
 }
 
+function cambiarFormato() {
+	// Obtener la fecha del formulario
+	const fechaFormulario = document.getElementById("fechaEmision").value;
+
+	// Crear un objeto de fecha Moment.js a partir de la cadena de texto
+	const fechaMoment = moment(fechaFormulario);
+
+	// Formatear la fecha en el formato deseado
+	const fechaFormateada = fechaMoment.format("MM/DD/YYYY");
+
+	// Asignar la fecha formateada a la variable de tipo texto
+	document.getElementById("fechaFormateada").value = fechaFormateada;
+}
+
+function generarlistayears() {
+	const yearActual = new Date().getFullYear();
+	const selectYear = document.getElementById('year');
+
+	for (let year = 1900; year <= yearActual; year++) {
+		const opcion = document.createElement('option');
+		opcion.value = year;
+		opcion.textContent = year;
+		selectYear.appendChild(opcion);
+	}
+}
+
+// Llamamos a la función para generar la lista de años
+generarlistayears();
+
 function generate() {
     var doc = new jsPDF({
     orientation: 'l',
@@ -65,15 +94,15 @@ function generate() {
 	// Agrega los valores al documento PDF
 	doc.setFontSize(12);
 	doc.text(VIN, 62, 64.3);
-	//doc.text("COLOR: " + color, 10, 40);
-	//doc.text("NAME: " + nombre, 10, 50);
-	//doc.text("ISSUED DATE: " + fechaFormateada, 10, 60);
-	//doc.text("MAKE: " + marca, 10, 70);
-	//doc.text("YEAR: " + year, 10, 80);
-	//doc.text("MAILIN ADRRESS: " + mailingaddress, 10, 90);
-	//doc.text("CITY: " + ciudad, 10, 100);
-	//doc.text("STATE: " + estado, 10, 110);
-	//doc.text("ZIP CODE: " + coidgozip, 10, 120);
-	// Guarda el documento PDF
+	doc.text(color, 10, 40);
+	//doc.text(nombre, 10, 50);
+	//doc.text(fechaFormateada, 10, 60);
+	//doc.text(marca, 10, 70);
+	//doc.text(year, 10, 80);
+	//doc.text(mailingaddress, 10, 90);
+	//doc.text(ciudad, 10, 100);
+	//doc.text(estado, 10, 110);
+	//doc.text(coidgozip, 10, 120);
+
 	doc.save("formulario.pdf");
 }	

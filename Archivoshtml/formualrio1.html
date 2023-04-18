@@ -11,6 +11,7 @@
 	<script src="../archivo JS/scriptformulario1.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
 <script>
 	// función para crear pdf
@@ -53,10 +54,10 @@
 			<input type="text" id="nombre" name="nombre" placeholder="name">
 
 			<label for="fechaEmision">ISSUED DATE:</label>
-			<input type="date" id="fechaEmision">
-			<br><br>
+			<input type="date" id="fechaEmision" name="fechaEmision" onchange="cambiarFormato()">
+	
 			<label for="fechaFormateada">Fecha formateada:</label>
-			<input type="text" id="fechaFormateada" disabled>
+			<input type="text" id="fechaFormateada" name="fechaFormateada" readonly>
 
 			<label for="marca">MAKE:</label>
 			<input type="text" id="marca" name="marca" placeholder="make">
