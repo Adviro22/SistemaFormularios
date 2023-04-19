@@ -1,12 +1,3 @@
-const currentYear = new Date().getFullYear();
-const selectYear = document.getElementById('year');
-for (let year = 1900; year <= currentYear; year++) {
-const option = document.createElement('option');
-option.value = year;
-option.text = year;
-selectYear.add(option);
-}
-
 
 function cambiarFormato() {
 	// Obtener la fecha del formulario

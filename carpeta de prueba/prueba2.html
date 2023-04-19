@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Lista de años</title>
+	<title>Selección de Año</title>
 </head>
 <body>
-	<form>
-		<label for="year">Selecciona un año:</label>
-		<select id="year" name="year"></select>
-	</form>
-	<script>
-		const currentYear = new Date().getFullYear();
-		const selectYear = document.getElementById('year');
-		for (let year = 1900; year <= currentYear; year++) {
-		const option = document.createElement('option');
-		option.value = year;
-		option.text = year;
-		selectYear.add(option);
-		}
+	<select id="anios"></select>
 
+	<script>
+		var fechaActual = new Date();
+		var anioActual = fechaActual.getFullYear();
+
+		for (var i = 1900; i <= anioActual; i++) {
+			var opcion = document.createElement("option");
+			opcion.value = i;
+			opcion.text = i;
+			document.getElementById("anios").add(opcion);
+		}
 	</script>
 </body>
 </html>

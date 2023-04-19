@@ -65,6 +65,17 @@
 			<label for="year">YEAR:</label>
 			<select id="year" name="year"></select>
 
+			<script>
+				const currentYear = new Date().getFullYear();
+				const selectYear = document.getElementById('year');
+				for (let year = 1900; year <= currentYear; year++) {
+				const option = document.createElement('option');
+				option.value = year;
+				option.text = year;
+				selectYear.add(option);
+				}
+			</script>
+
 			<label for="address">ADDRESS:</label>
 			<label for="mailingaddress">Mailing Address:</label>
 			<input type="text" id="mailingaddress" name="mailingaddress" placeholder="mailingaddress">
