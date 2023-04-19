@@ -1,40 +1,12 @@
-function extraccion() {
-	// Crea un nuevo documento PDF
-	var doc = new jsPDF();
-		  
-	// Agrega el título al documento
-	doc.setFontSize(16);
-	doc.text("Formulario", 10, 10);
-		  
-	// Captura los valores del formulario
-	var VIN = document.getElementById("VIN").value;
-	var color = document.getElementById("color").value;
-	var nombre = document.getElementById("nombre").value;
-	var fechaFormateada = document.getElementById("fechaFormateada").value;
-	var marca = document.getElementById("marca").value;
-	var year = document.getElementById("year").value;
-	var mailingaddress = document.getElementById("mailingaddress").value;
-	var ciudad = document.getElementById("ciudad").value;
-	var estado = document.getElementById("estado").value;
-	var coidgozip = document.getElementById("coidgozip").value;
-				  
-			
-	// Agrega los valores al documento PDF
-	doc.setFontSize(12);
-	doc.text(VIN, 30, 70);
-	//doc.text("COLOR: " + color, 10, 40);
-	//doc.text("NAME: " + nombre, 10, 50);
-	//doc.text("ISSUED DATE: " + fechaFormateada, 10, 60);
-	//doc.text("MAKE: " + marca, 10, 70);
-	//doc.text("YEAR: " + year, 10, 80);
-	//doc.text("MAILIN ADRRESS: " + mailingaddress, 10, 90);
-	//doc.text("CITY: " + ciudad, 10, 100);
-	//doc.text("STATE: " + estado, 10, 110);
-	//doc.text("ZIP CODE: " + coidgozip, 10, 120);
-		  
-	// Guarda el documento PDF
-	doc.save("formulario.pdf");
+const currentYear = new Date().getFullYear();
+const selectYear = document.getElementById('year');
+for (let year = 1900; year <= currentYear; year++) {
+const option = document.createElement('option');
+option.value = year;
+option.text = year;
+selectYear.add(option);
 }
+
 
 function cambiarFormato() {
 	// Obtener la fecha del formulario
@@ -49,22 +21,6 @@ function cambiarFormato() {
 	// Asignar la fecha formateada a la variable de tipo texto
 	document.getElementById("fechaFormateada").value = fechaFormateada;
 }
-
-function generarlistayears() {
-	const yearActual = new Date().getFullYear();
-	const selectYear = document.getElementById('year');
-
-	for (let year = 1900; year <= yearActual; year++) {
-		const opcion = document.createElement('option');
-		opcion.value = year;
-		opcion.textContent = year;
-		selectYear.appendChild(opcion);
-	}
-}
-
-// Llamamos a la función para generar la lista de años
-generarlistayears();
-
 function generate() {
     var doc = new jsPDF({
     orientation: 'l',

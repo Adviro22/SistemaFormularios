@@ -5,23 +5,19 @@
 </head>
 <body>
 	<form>
-		<label for="year">Año:</label>
+		<label for="year">Selecciona un año:</label>
 		<select id="year" name="year"></select>
 	</form>
 	<script>
-		function generarListaYears() {
-			const yearActual = new Date().getFullYear();
-			const selectYear = document.getElementById('year');
-
-			for (let year = 1900; year <= yearActual; year++) {
-				const opcion = document.createElement('option');
-				opcion.value = year;
-				opcion.textContent = year;
-				selectYear.appendChild(opcion);
-			}
+		const currentYear = new Date().getFullYear();
+		const selectYear = document.getElementById('year');
+		for (let year = 1900; year <= currentYear; year++) {
+		const option = document.createElement('option');
+		option.value = year;
+		option.text = year;
+		selectYear.add(option);
 		}
 
-		generarListaYears(); // Llamamos a la función para generar la lista de años
 	</script>
 </body>
 </html>
