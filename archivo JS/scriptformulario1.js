@@ -40,12 +40,12 @@ function generate() {
 			
 	// Agrega los valores al documento PDF
 	doc.setFontSize(12);
-	doc.text(VIN, 62, 64.3);
-	doc.text(color, 10, 40);
+	doc.text(VIN, 62, 63.8);
+	doc.text(color, 62, 80.3);
 	//doc.text(nombre, 10, 50);
 	//doc.text(fechaFormateada, 10, 60);
-	//doc.text(marca, 10, 70);
-	//doc.text(year, 10, 80);
+	doc.text(marca, 62, 74.8);
+	doc.text(year, 62, 69.3);
 	//doc.text(mailingaddress, 10, 90);
 	//doc.text(ciudad, 10, 100);
 	//doc.text(estado, 10, 110);
